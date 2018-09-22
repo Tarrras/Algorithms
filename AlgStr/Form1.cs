@@ -36,12 +36,12 @@ namespace AlgStr
                 //richTextBox1.LoadFile(openFileDialog.FileName, RichTextBoxStreamType.PlainText);
                 try
                 {
-                    StreamReader stream = new StreamReader(openFileDialog.FileName);
+                    StreamReader stream = new StreamReader(openFileDialog.FileName,Encoding.Default);
                     while ((line = stream.ReadLine()) != null)
                     {
-                        j = random.Next(0, 500);
-                        while(myDictionary.ContainsKey(j))  j = random.Next(0, 500);
-                        myDictionary.Add(j, line);
+                        string[] mass = line.Split(' ');
+                        j = int.Parse(mass[0]);
+                        myDictionary.Add(j, mass[1]);
                     }
                     keys = myDictionary.Keys.ToArray();
                     stream.Close();
