@@ -52,7 +52,7 @@ namespace AlgStr
                 }
                 foreach (KeyValuePair<int, string> keyValue in myDictionary)
                 {
-                    richTextBox1.Text += string.Format("{0},{1}\n", keyValue.Key, keyValue.Value);
+                    richTextBox1.Text += string.Format("{0} {1}\n", keyValue.Key, keyValue.Value);
                 }
             }
             else throw new Exception("Failed to upload file");
@@ -504,6 +504,9 @@ namespace AlgStr
 
             return -1;
         }
+
+
+
         //ФИБОНАЧИ ---------------------------- ПОИСК
 
 
@@ -511,12 +514,21 @@ namespace AlgStr
         {
             k = 0;
             keys = null;
-            keyBox.Clear();
-            newKeyBox.Clear();
             richTextBox1.Clear();
             myDictionary.Clear();
             myDictionarySecond.Clear();
             richTextBox2.Clear();
+        }
+
+        private void Box_Click(object sender, EventArgs e)
+        {
+            foreach (string line in richTextBox1.Lines)
+            {
+                string[] mass = line.Split(' ');
+                j = int.Parse(mass[0]);
+                myDictionary.Add(j, mass[1]);
+            }
+            keys = myDictionary.Keys.ToArray();
         }
 
         public void CreateDictionary()
@@ -530,6 +542,13 @@ namespace AlgStr
                     break;
                 }
             }
+        }
+
+        private void clearKeyBox_Click(object sender, EventArgs e)
+        {
+            keyBox.Clear();
+            newKeyBox.Clear();
+
         }
 
         public void ShowDictionary()

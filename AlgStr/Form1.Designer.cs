@@ -46,6 +46,8 @@
             this.searchForKeySentinel = new System.Windows.Forms.Button();
             this.interpolyarnui = new System.Windows.Forms.Button();
             this.searchForKeyFibonachi = new System.Windows.Forms.Button();
+            this.clearKeyBox = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -53,7 +55,7 @@
             this.button1.BackColor = System.Drawing.Color.Lime;
             this.button1.Location = new System.Drawing.Point(6, 42);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(103, 179);
+            this.button1.Size = new System.Drawing.Size(103, 117);
             this.button1.TabIndex = 0;
             this.button1.Text = "Загрузить список";
             this.button1.UseVisualStyleBackColor = false;
@@ -71,9 +73,9 @@
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.Red;
-            this.button2.Location = new System.Drawing.Point(6, 243);
+            this.button2.Location = new System.Drawing.Point(6, 299);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(103, 173);
+            this.button2.Size = new System.Drawing.Size(103, 117);
             this.button2.TabIndex = 3;
             this.button2.Text = "Очистить список";
             this.button2.UseVisualStyleBackColor = false;
@@ -140,7 +142,7 @@
             // 
             // searchForKeyBinary
             // 
-            this.searchForKeyBinary.Location = new System.Drawing.Point(632, 128);
+            this.searchForKeyBinary.Location = new System.Drawing.Point(649, 128);
             this.searchForKeyBinary.Name = "searchForKeyBinary";
             this.searchForKeyBinary.Size = new System.Drawing.Size(139, 37);
             this.searchForKeyBinary.TabIndex = 10;
@@ -151,7 +153,7 @@
             // keyBox
             // 
             this.keyBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.keyBox.Location = new System.Drawing.Point(632, 71);
+            this.keyBox.Location = new System.Drawing.Point(649, 71);
             this.keyBox.Name = "keyBox";
             this.keyBox.Size = new System.Drawing.Size(139, 51);
             this.keyBox.TabIndex = 11;
@@ -161,7 +163,7 @@
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.textBox1.Location = new System.Drawing.Point(632, 42);
+            this.textBox1.Location = new System.Drawing.Point(649, 42);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(139, 23);
             this.textBox1.TabIndex = 12;
@@ -170,7 +172,7 @@
             // newKeyBox
             // 
             this.newKeyBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.newKeyBox.Location = new System.Drawing.Point(632, 371);
+            this.newKeyBox.Location = new System.Drawing.Point(649, 371);
             this.newKeyBox.Name = "newKeyBox";
             this.newKeyBox.Size = new System.Drawing.Size(139, 45);
             this.newKeyBox.TabIndex = 13;
@@ -179,7 +181,7 @@
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.textBox2.Location = new System.Drawing.Point(632, 342);
+            this.textBox2.Location = new System.Drawing.Point(649, 342);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(139, 23);
             this.textBox2.TabIndex = 14;
@@ -187,7 +189,7 @@
             // 
             // searchForKeyLiner
             // 
-            this.searchForKeyLiner.Location = new System.Drawing.Point(632, 171);
+            this.searchForKeyLiner.Location = new System.Drawing.Point(649, 171);
             this.searchForKeyLiner.Name = "searchForKeyLiner";
             this.searchForKeyLiner.Size = new System.Drawing.Size(139, 37);
             this.searchForKeyLiner.TabIndex = 15;
@@ -197,7 +199,7 @@
             // 
             // searchForKeySentinel
             // 
-            this.searchForKeySentinel.Location = new System.Drawing.Point(632, 214);
+            this.searchForKeySentinel.Location = new System.Drawing.Point(649, 214);
             this.searchForKeySentinel.Name = "searchForKeySentinel";
             this.searchForKeySentinel.Size = new System.Drawing.Size(139, 37);
             this.searchForKeySentinel.TabIndex = 16;
@@ -207,7 +209,7 @@
             // 
             // interpolyarnui
             // 
-            this.interpolyarnui.Location = new System.Drawing.Point(632, 257);
+            this.interpolyarnui.Location = new System.Drawing.Point(649, 256);
             this.interpolyarnui.Name = "interpolyarnui";
             this.interpolyarnui.Size = new System.Drawing.Size(139, 37);
             this.interpolyarnui.TabIndex = 17;
@@ -217,7 +219,7 @@
             // 
             // searchForKeyFibonachi
             // 
-            this.searchForKeyFibonachi.Location = new System.Drawing.Point(632, 299);
+            this.searchForKeyFibonachi.Location = new System.Drawing.Point(649, 299);
             this.searchForKeyFibonachi.Name = "searchForKeyFibonachi";
             this.searchForKeyFibonachi.Size = new System.Drawing.Size(139, 37);
             this.searchForKeyFibonachi.TabIndex = 18;
@@ -225,11 +227,35 @@
             this.searchForKeyFibonachi.UseVisualStyleBackColor = true;
             this.searchForKeyFibonachi.Click += new System.EventHandler(this.searchForKeyFibonachi_Click);
             // 
+            // clearKeyBox
+            // 
+            this.clearKeyBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.clearKeyBox.Location = new System.Drawing.Point(570, 71);
+            this.clearKeyBox.Name = "clearKeyBox";
+            this.clearKeyBox.Size = new System.Drawing.Size(73, 51);
+            this.clearKeyBox.TabIndex = 19;
+            this.clearKeyBox.Text = "Очистить";
+            this.clearKeyBox.UseVisualStyleBackColor = false;
+            this.clearKeyBox.Click += new System.EventHandler(this.clearKeyBox_Click);
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.button3.Location = new System.Drawing.Point(6, 171);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(103, 117);
+            this.button3.TabIndex = 20;
+            this.button3.Text = "Создать список";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.Box_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.clearKeyBox);
             this.Controls.Add(this.searchForKeyFibonachi);
             this.Controls.Add(this.interpolyarnui);
             this.Controls.Add(this.searchForKeySentinel);
@@ -276,6 +302,8 @@
         private System.Windows.Forms.Button searchForKeySentinel;
         private System.Windows.Forms.Button interpolyarnui;
         private System.Windows.Forms.Button searchForKeyFibonachi;
+        private System.Windows.Forms.Button clearKeyBox;
+        private System.Windows.Forms.Button button3;
     }
 }
 
