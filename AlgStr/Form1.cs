@@ -316,6 +316,10 @@ namespace AlgStr
             readKey();
             keys = sorting(keys, 0, keys.Length - 1);
             id = BinarySearch(keys, myKey);
+            if (id == 0)
+            {
+                newKeyBox.Text = "Такого элемента не существует!";
+            }
             showKey();
         }
 
@@ -352,6 +356,10 @@ namespace AlgStr
         {
             readKey();
             id = LinearSearch(keys, myKey);
+            if (id == -1)
+            {
+                newKeyBox.Text = "Такого элемента не существует!";
+            }
             showKey();
         }
         public int LinearSearch(int[] array, int x)
@@ -524,7 +532,7 @@ namespace AlgStr
         {
             foreach (string line in richTextBox1.Lines)
             {
-                string[] mass = line.Split(' ');
+                string[] mass = line.Split(' ','\n',',','-');
                 j = int.Parse(mass[0]);
                 myDictionary.Add(j, mass[1]);
             }
@@ -555,7 +563,7 @@ namespace AlgStr
         {
             foreach (KeyValuePair<int, string> keyValue in myDictionarySecond)
             {
-                richTextBox2.Text += string.Format("{0},{1}\n", keyValue.Key, keyValue.Value);
+                richTextBox2.Text += string.Format("{0} {1}\n", keyValue.Key, keyValue.Value);
             }
         }
     }

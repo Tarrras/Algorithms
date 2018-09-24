@@ -168,6 +168,7 @@
             this.textBox1.Size = new System.Drawing.Size(139, 23);
             this.textBox1.TabIndex = 12;
             this.textBox1.Text = "Поиск по ключу";
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // newKeyBox
             // 
