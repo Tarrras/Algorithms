@@ -20,6 +20,7 @@ namespace AlgStr
         Random random=new Random();
         int[] keys;
         int j=0,k=0,id,myKey;
+        static int iter=0;
         public Form1()
         {
             InitializeComponent();
@@ -41,7 +42,8 @@ namespace AlgStr
                     {
                         string[] mass = line.Split(' ');
                         j = int.Parse(mass[0]);
-                        myDictionary.Add(j, mass[1]);
+                        string nameOf = mass[1] + " " + mass[2];
+                        myDictionary.Add(j, nameOf);
                     }
                     keys = myDictionary.Keys.ToArray();
                     stream.Close();
@@ -70,6 +72,7 @@ namespace AlgStr
             keys=sortMerge(keys);
             CreateDictionary();
             ShowDictionary();
+            AddToSortirovki("Сортировка слиянием");
         }
         public static int[] sortMerge(int[] massive)
         {
@@ -86,14 +89,23 @@ namespace AlgStr
             {
                 if (b < mass2.Length && a < mass1.Length)
                     if (mass1[a] > mass2[b])
+                    {
                         merged[i] = mass2[b++];
-                    else //if int go for
+                    }
+                    else
+                    { //if int go for
                         merged[i] = mass1[a++];
+                    }
                 else
                     if (b < mass2.Length)
-                    merged[i] = mass2[b++];
+                    {
+                        merged[i] = mass2[b++];
+                    }
                 else
+                {
                     merged[i] = mass1[a++];
+                }
+                iter++;
             }
             return merged;
         }
@@ -106,6 +118,7 @@ namespace AlgStr
             keys = BucketSort(keys);
             CreateDictionary();
             ShowDictionary();
+            AddToSortirovki("Блочная сортировка");
         }
 
         public static int[] BucketSort(int[] items)
@@ -120,10 +133,17 @@ namespace AlgStr
             for (int i = 1; i < items.Length; i++)
             {
                 if (items[i] > maxValue)
+                {
                     maxValue = items[i];
+                   
+                }
 
                 if (items[i] < minValue)
+                {
                     minValue = items[i];
+                    
+                }
+                iter++;
             }
 
             List<int>[] bucket = new List<int>[maxValue - minValue + 1];
@@ -131,6 +151,7 @@ namespace AlgStr
             for (int i = 0; i < bucket.Length; i++)
             {
                 bucket[i] = new List<int>();
+                iter++;
             }
 
             // Занесение значений в пакеты
@@ -138,6 +159,7 @@ namespace AlgStr
             for (int i = 0; i < items.Length; i++)
             {
                 bucket[items[i] - minValue].Add(items[i]);
+                iter++;
             }
 
             // Восстановление элементов в исходный массив
@@ -152,6 +174,7 @@ namespace AlgStr
                     {
                         items[position] = bucket[i][j];
                         position++;
+                        iter++;
                     }
                 }
             }
@@ -166,6 +189,7 @@ namespace AlgStr
             keys = shellSort(keys);
             CreateDictionary();
             ShowDictionary();
+            AddToSortirovki("Сортировка Шелла");
         }
         public static int[] shellSort(int[] vector)
         {
@@ -179,7 +203,11 @@ namespace AlgStr
                 {
                     int value = vector[i];
                     for (j = i - step; (j >= 0) && (vector[j] > value); j -= step)
+                    {
                         vector[j + step] = vector[j];
+                        
+                    }
+                    iter++;
                     vector[j + step] = value;
                 }
                 step /= 2;
@@ -195,6 +223,7 @@ namespace AlgStr
             keys = sorting(keys,0,keys.Length-1);
             CreateDictionary();
             ShowDictionary();
+            AddToSortirovki("Быстрая сортировка");
         }
         public static int[] sorting(int[] arr,int first,int last)
         {
@@ -205,15 +234,25 @@ namespace AlgStr
             int i = first, j = last;
             while (i <= j)
             {
-                while (arr[i] < p && i <= last) ++i;
-                while (arr[j] > p && j >= first) --j;
+                while (arr[i] < p && i <= last)
+                {
+                    ++i;
+                    iter++;
+                }
+                while (arr[j] > p && j >= first)
+                {
+                    --j;
+                    iter++;
+                }
                 if (i <= j)
                 {
                     temp = arr[i];
                     arr[i] = arr[j];
                     arr[j] = temp;
                     ++i; --j;
+                    
                 }
+                iter++;
             }
             if (j > first) sorting(arr, first, j);
             if (i < last) sorting(arr, i, last);
@@ -228,6 +267,7 @@ namespace AlgStr
             keys = Pyramid_Sort(keys,keys.Length);
             CreateDictionary();
             ShowDictionary();
+            AddToSortirovki("Пирамидальная сортировка");
         }
         public static int add2pyramid(int[] arr, int i, int N)
         {
@@ -235,10 +275,19 @@ namespace AlgStr
             int buf;
             if ((2 * i + 2) < N)
             {
-                if (arr[2 * i + 1] < arr[2 * i + 2]) imax = 2 * i + 2;
-                else imax = 2 * i + 1;
+                if (arr[2 * i + 1] < arr[2 * i + 2])
+                {
+                    imax = 2 * i + 2;
+                }
+                else
+                {
+                    imax = 2 * i + 1;
+                }
             }
-            else imax = 2 * i + 1;
+            else
+            {
+                imax = 2 * i + 1;
+            }
             if (imax >= N) return i;
             if (arr[i] < arr[imax])
             {
@@ -246,6 +295,7 @@ namespace AlgStr
                 arr[i] = arr[imax];
                 arr[imax] = buf;
                 if (imax < N / 2) i = imax;
+                iter++;
             }
             return i;
         }
@@ -257,6 +307,7 @@ namespace AlgStr
                 long prev_i = i;
                 i = add2pyramid(arr, i, len);
                 if (prev_i != i) ++i;
+                iter++;
             }
 
             int buf;
@@ -268,9 +319,11 @@ namespace AlgStr
                 int i = 0, prev_i = -1;
                 while (i != prev_i)
                 {
+                    iter++;
                     prev_i = i;
                     i = add2pyramid(arr, i, k);
                 }
+                iter++;
             }
             return arr;
         }
@@ -320,7 +373,8 @@ namespace AlgStr
             {
                 newKeyBox.Text = "Такого элемента не существует!";
             }
-            showKey();
+            else showKey();
+            AddToPoiski("Бинарный поиск");
         }
 
         
@@ -341,6 +395,7 @@ namespace AlgStr
                     last = mid;
                 else
                     first = mid + 1;
+                iter++;
             }
 
             if (a[last] == x)
@@ -360,7 +415,8 @@ namespace AlgStr
             {
                 newKeyBox.Text = "Такого элемента не существует!";
             }
-            showKey();
+            else showKey();
+            AddToPoiski("Линейный поиск");
         }
         public int LinearSearch(int[] array, int x)
         {
@@ -371,6 +427,7 @@ namespace AlgStr
                 if (array[index] == x)
                 {
                     result = index;
+                    iter++;
                 }
             }
 
@@ -388,6 +445,7 @@ namespace AlgStr
                 newKeyBox.Text = "Такого элемента не существует!";
             }
             else showKey();
+            AddToPoiski("Поиск со сторожем");
         }
         public int SentinelLinearSearch(int[] array, int count, int x)
         {
@@ -399,6 +457,7 @@ namespace AlgStr
             while (array[index] != x)
             {
                 index++;
+                iter++;
             }
 
             array[count - 1] = last;
@@ -423,6 +482,7 @@ namespace AlgStr
                 newKeyBox.Text = "Такого элемента не существует!";
             }
             else showKey();
+            AddToPoiski("Интерполляционный поиск");
         }
 
         public int interpolationSearch(int[] sortedArray, int toFind)
@@ -441,6 +501,7 @@ namespace AlgStr
                     high = mid - 1;
                 else
                     return mid;
+                iter++;
             }
 
             if (sortedArray[low] == toFind)
@@ -463,6 +524,7 @@ namespace AlgStr
                 newKeyBox.Text = "Такого элемента не существует!";
             }
             else showKey();
+            AddToPoiski("Поиск Фибоначи");
         }
         public static int min(int x, int y)
         {
@@ -481,6 +543,7 @@ namespace AlgStr
                 fibMMm2 = fibMMm1;
                 fibMMm1 = fibM;
                 fibM = fibMMm2 + fibMMm1;
+                iter++;
             }
             
             int offset = -1;
@@ -495,6 +558,7 @@ namespace AlgStr
                     fibMMm1 = fibMMm2;
                     fibMMm2 = fibM - fibMMm1;
                     offset = i;
+                    iter++;
                 }
 
                 else if (arr[i] > x)
@@ -502,8 +566,9 @@ namespace AlgStr
                     fibM = fibMMm2;
                     fibMMm1 = fibMMm1 - fibMMm2;
                     fibMMm2 = fibM - fibMMm1;
+                    iter++;
                 }
-
+                
                 else return i;
             }
 
@@ -534,7 +599,8 @@ namespace AlgStr
             {
                 string[] mass = line.Split(' ','\n',',','-');
                 j = int.Parse(mass[0]);
-                myDictionary.Add(j, mass[1]);
+                string nameOf = mass[1] + " " + mass[2];
+                myDictionary.Add(j, nameOf);
             }
             keys = myDictionary.Keys.ToArray();
         }
@@ -565,6 +631,18 @@ namespace AlgStr
             {
                 richTextBox2.Text += string.Format("{0} {1}\n", keyValue.Key, keyValue.Value);
             }
+        }
+
+        public void AddToSortirovki(string name)
+        {
+            Sortirovki.Text+=name+": "+iter+"\n";
+            iter = 0;
+        }
+
+        public void AddToPoiski(string name)
+        {
+            Poiski.Text += name + ": " + iter + "\n";
+            iter = 0;
         }
     }
 }

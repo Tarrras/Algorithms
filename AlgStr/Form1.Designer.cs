@@ -48,6 +48,10 @@
             this.searchForKeyFibonachi = new System.Windows.Forms.Button();
             this.clearKeyBox = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.Sortirovki = new System.Windows.Forms.RichTextBox();
+            this.Poiski = new System.Windows.Forms.RichTextBox();
+            this.richTextBox5 = new System.Windows.Forms.RichTextBox();
+            this.P = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // button1
@@ -55,7 +59,7 @@
             this.button1.BackColor = System.Drawing.Color.Lime;
             this.button1.Location = new System.Drawing.Point(6, 42);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(103, 117);
+            this.button1.Size = new System.Drawing.Size(81, 117);
             this.button1.TabIndex = 0;
             this.button1.Text = "Загрузить список";
             this.button1.UseVisualStyleBackColor = false;
@@ -64,9 +68,9 @@
             // richTextBox1
             // 
             this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.richTextBox1.Location = new System.Drawing.Point(115, 42);
+            this.richTextBox1.Location = new System.Drawing.Point(93, 42);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(162, 374);
+            this.richTextBox1.Size = new System.Drawing.Size(184, 374);
             this.richTextBox1.TabIndex = 2;
             this.richTextBox1.Text = "";
             // 
@@ -75,7 +79,7 @@
             this.button2.BackColor = System.Drawing.Color.Red;
             this.button2.Location = new System.Drawing.Point(6, 299);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(103, 117);
+            this.button2.Size = new System.Drawing.Size(81, 117);
             this.button2.TabIndex = 3;
             this.button2.Text = "Очистить список";
             this.button2.UseVisualStyleBackColor = false;
@@ -84,9 +88,9 @@
             // richTextBox2
             // 
             this.richTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.richTextBox2.Location = new System.Drawing.Point(402, 42);
+            this.richTextBox2.Location = new System.Drawing.Point(370, 42);
             this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(162, 374);
+            this.richTextBox2.Size = new System.Drawing.Size(194, 374);
             this.richTextBox2.TabIndex = 4;
             this.richTextBox2.Text = "";
             // 
@@ -94,7 +98,7 @@
             // 
             this.Sliyanie.Location = new System.Drawing.Point(283, 42);
             this.Sliyanie.Name = "Sliyanie";
-            this.Sliyanie.Size = new System.Drawing.Size(113, 70);
+            this.Sliyanie.Size = new System.Drawing.Size(81, 70);
             this.Sliyanie.TabIndex = 5;
             this.Sliyanie.Text = "Сортировка слиянием";
             this.Sliyanie.UseVisualStyleBackColor = true;
@@ -104,7 +108,7 @@
             // 
             this.Blochnaya.Location = new System.Drawing.Point(283, 118);
             this.Blochnaya.Name = "Blochnaya";
-            this.Blochnaya.Size = new System.Drawing.Size(113, 70);
+            this.Blochnaya.Size = new System.Drawing.Size(81, 70);
             this.Blochnaya.TabIndex = 6;
             this.Blochnaya.Text = "Блочная сортировка";
             this.Blochnaya.UseVisualStyleBackColor = true;
@@ -114,7 +118,7 @@
             // 
             this.Shella.Location = new System.Drawing.Point(283, 194);
             this.Shella.Name = "Shella";
-            this.Shella.Size = new System.Drawing.Size(113, 70);
+            this.Shella.Size = new System.Drawing.Size(81, 70);
             this.Shella.TabIndex = 7;
             this.Shella.Text = "Сортировка Шелла";
             this.Shella.UseVisualStyleBackColor = true;
@@ -124,7 +128,7 @@
             // 
             this.bustraya.Location = new System.Drawing.Point(283, 270);
             this.bustraya.Name = "bustraya";
-            this.bustraya.Size = new System.Drawing.Size(113, 70);
+            this.bustraya.Size = new System.Drawing.Size(81, 70);
             this.bustraya.TabIndex = 8;
             this.bustraya.Text = "Быстрая сортировка";
             this.bustraya.UseVisualStyleBackColor = true;
@@ -134,7 +138,7 @@
             // 
             this.pyramyde.Location = new System.Drawing.Point(283, 346);
             this.pyramyde.Name = "pyramyde";
-            this.pyramyde.Size = new System.Drawing.Size(113, 70);
+            this.pyramyde.Size = new System.Drawing.Size(81, 70);
             this.pyramyde.TabIndex = 9;
             this.pyramyde.Text = "Пирамидальная сортировка";
             this.pyramyde.UseVisualStyleBackColor = true;
@@ -244,17 +248,55 @@
             this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.button3.Location = new System.Drawing.Point(6, 171);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(103, 117);
+            this.button3.Size = new System.Drawing.Size(81, 117);
             this.button3.TabIndex = 20;
             this.button3.Text = "Создать список";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.Box_Click);
             // 
+            // Sortirovki
+            // 
+            this.Sortirovki.Location = new System.Drawing.Point(821, 100);
+            this.Sortirovki.Name = "Sortirovki";
+            this.Sortirovki.Size = new System.Drawing.Size(143, 316);
+            this.Sortirovki.TabIndex = 21;
+            this.Sortirovki.Text = "";
+            // 
+            // Poiski
+            // 
+            this.Poiski.Location = new System.Drawing.Point(989, 100);
+            this.Poiski.Name = "Poiski";
+            this.Poiski.Size = new System.Drawing.Size(143, 316);
+            this.Poiski.TabIndex = 22;
+            this.Poiski.Text = "";
+            // 
+            // richTextBox5
+            // 
+            this.richTextBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.richTextBox5.Location = new System.Drawing.Point(821, 42);
+            this.richTextBox5.Name = "richTextBox5";
+            this.richTextBox5.Size = new System.Drawing.Size(143, 52);
+            this.richTextBox5.TabIndex = 23;
+            this.richTextBox5.Text = "Кол-во итераций в сортировках";
+            // 
+            // P
+            // 
+            this.P.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.P.Location = new System.Drawing.Point(989, 42);
+            this.P.Name = "P";
+            this.P.Size = new System.Drawing.Size(143, 52);
+            this.P.TabIndex = 24;
+            this.P.Text = "Кол-во итераций в поисках";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1144, 450);
+            this.Controls.Add(this.P);
+            this.Controls.Add(this.richTextBox5);
+            this.Controls.Add(this.Poiski);
+            this.Controls.Add(this.Sortirovki);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.clearKeyBox);
             this.Controls.Add(this.searchForKeyFibonachi);
@@ -305,6 +347,10 @@
         private System.Windows.Forms.Button searchForKeyFibonachi;
         private System.Windows.Forms.Button clearKeyBox;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.RichTextBox Sortirovki;
+        private System.Windows.Forms.RichTextBox Poiski;
+        private System.Windows.Forms.RichTextBox richTextBox5;
+        private System.Windows.Forms.RichTextBox P;
     }
 }
 
