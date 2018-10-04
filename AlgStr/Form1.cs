@@ -20,7 +20,7 @@ namespace AlgStr
         Random random=new Random();
         int[] keys;
         int j=0,k=0,id,myKey;
-        static int iter=0;
+        static int iter=0,exch=0;
         public Form1()
         {
             InitializeComponent();
@@ -91,19 +91,23 @@ namespace AlgStr
                     if (mass1[a] > mass2[b])
                     {
                         merged[i] = mass2[b++];
+                        exch++;
                     }
                     else
                     { //if int go for
                         merged[i] = mass1[a++];
+                        exch++;
                     }
                 else
                     if (b < mass2.Length)
                     {
                         merged[i] = mass2[b++];
+                        exch++;
                     }
                 else
                 {
                     merged[i] = mass1[a++];
+                    exch++;
                 }
                 iter++;
             }
@@ -135,13 +139,13 @@ namespace AlgStr
                 if (items[i] > maxValue)
                 {
                     maxValue = items[i];
-                   
+                    exch++;
                 }
 
                 if (items[i] < minValue)
                 {
                     minValue = items[i];
-                    
+                    exch++;
                 }
                 iter++;
             }
@@ -173,6 +177,7 @@ namespace AlgStr
                     for (int j = 0; j < bucket[i].Count; j++)
                     {
                         items[position] = bucket[i][j];
+                        exch++;
                         position++;
                         iter++;
                     }
@@ -205,10 +210,11 @@ namespace AlgStr
                     for (j = i - step; (j >= 0) && (vector[j] > value); j -= step)
                     {
                         vector[j + step] = vector[j];
-                        
+                        exch++;
                     }
                     iter++;
                     vector[j + step] = value;
+                    exch++;
                 }
                 step /= 2;
             }
@@ -250,7 +256,7 @@ namespace AlgStr
                     arr[i] = arr[j];
                     arr[j] = temp;
                     ++i; --j;
-                    
+                    exch++;
                 }
                 iter++;
             }
@@ -278,15 +284,18 @@ namespace AlgStr
                 if (arr[2 * i + 1] < arr[2 * i + 2])
                 {
                     imax = 2 * i + 2;
+                    exch++;
                 }
                 else
                 {
                     imax = 2 * i + 1;
+                    exch++;
                 }
             }
             else
             {
                 imax = 2 * i + 1;
+                exch++;
             }
             if (imax >= N) return i;
             if (arr[i] < arr[imax])
@@ -294,7 +303,11 @@ namespace AlgStr
                 buf = arr[i];
                 arr[i] = arr[imax];
                 arr[imax] = buf;
-                if (imax < N / 2) i = imax;
+                exch++;
+                if (imax < N / 2) {
+                    i = imax;
+                    exch++;
+                }
                 iter++;
             }
             return i;
@@ -321,6 +334,7 @@ namespace AlgStr
                 {
                     iter++;
                     prev_i = i;
+                    exch++;
                     i = add2pyramid(arr, i, k);
                 }
                 iter++;
@@ -635,13 +649,15 @@ namespace AlgStr
 
         public void AddToSortirovki(string name)
         {
-            Sortirovki.Text+=name+": "+iter+"\n";
+            Sortirovki.Text+=name+"(шаги): "+iter+"\n";
+            Sortirovki.Text+="Кол-во обменов"+": "+exch+"\n";           
             iter = 0;
+            exch = 0;
         }
 
         public void AddToPoiski(string name)
         {
-            Poiski.Text += name + ": " + iter + "\n";
+            Poiski.Text += name + "(шаги): " + iter + "\n";
             iter = 0;
         }
     }

@@ -52,6 +52,7 @@
             this.Poiski = new System.Windows.Forms.RichTextBox();
             this.richTextBox5 = new System.Windows.Forms.RichTextBox();
             this.P = new System.Windows.Forms.RichTextBox();
+            this.richTextBox3 = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // button1
@@ -288,11 +289,22 @@
             this.P.TabIndex = 24;
             this.P.Text = "Кол-во итераций в поисках";
             // 
+            // richTextBox3
+            // 
+            this.richTextBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.richTextBox3.Location = new System.Drawing.Point(6, 12);
+            this.richTextBox3.Name = "richTextBox3";
+            this.richTextBox3.Size = new System.Drawing.Size(569, 24);
+            this.richTextBox3.TabIndex = 25;
+            this.richTextBox3.Text = "Лабораторная работа № 1. Алгоритмы сортировок и поиска. Вовченко Тарас. ПЗ-17-1";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1144, 450);
+            this.Controls.Add(this.richTextBox3);
             this.Controls.Add(this.P);
             this.Controls.Add(this.richTextBox5);
             this.Controls.Add(this.Poiski);
@@ -351,6 +363,7 @@
         private System.Windows.Forms.RichTextBox Poiski;
         private System.Windows.Forms.RichTextBox richTextBox5;
         private System.Windows.Forms.RichTextBox P;
+        private System.Windows.Forms.RichTextBox richTextBox3;
     }
 }
 
